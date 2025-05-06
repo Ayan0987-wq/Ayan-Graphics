@@ -1,50 +1,36 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SIM DATA BY AYAN ISHAQUE</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SIM DATA BY SALMAN X AMAN</title>
   <style>
-    /* Base styles */
-    body {
+    html, body {
       margin: 0;
       padding: 0;
-      background: #000;
+      height: 100%;
+      overflow: hidden;
       font-family: Arial, sans-serif;
+      background: url('hacker.jpg') no-repeat center center fixed;
+      background-size: cover;
+    }
+
+    canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: -1;
+    }
+
+    body {
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 100vh;
-      animation: fadeIn 1s ease-in-out;
-      overflow: hidden;
     }
 
-    /* Hacking background animation */
-    .hacking-background {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: #000;
-      z-index: -1;
-      animation: matrix 10s infinite linear;
-    }
-
-    @keyframes matrix {
-      0% {
-        background-image: linear-gradient(90deg, #00ff00 10%, transparent 10%);
-        background-size: 100px 100px;
-      }
-      100% {
-        background-image: linear-gradient(90deg, #00ff00 10%, transparent 10%);
-        background-size: 100px 100px;
-      }
-    }
-
-    /* Box styles */
     .box {
-      background: #111;
+      background: rgba(0, 0, 0, 0.85);
       border: 2px solid green;
       box-shadow: 0 0 25px green;
       padding: 30px 20px;
@@ -119,28 +105,61 @@
     }
 
     @keyframes fadeIn {
-      0% {
-        opacity: 0;
-      }
-      100% {
-        opacity: 1;
-      }
+      0% { opacity: 0; }
+      100% { opacity: 1; }
     }
   </style>
 </head>
-
 <body>
-  <div class="hacking-background"></div> <!-- Hacking background -->
+  <canvas id="matrix"></canvas>
+
   <div class="box">
-    <h2>🔍 AYAN MODES BY AYAN ISHAQUE</h2>
+    <h2>🔍 SALMAN MODS DB</h2>
     <input type="text" id="number" placeholder="Enter phone number without +92 or 0" required />
     <button onclick="fetchData()">🔎 Get Details</button>
+
     <div id="responseBox"></div>
+
     <button id="shareButton" class="whatsapp-btn" onclick="shareWhatsApp()" style="display: none;">📲 Share on WhatsApp</button>
-    <button class="telegram-btn" onclick="window.location.href='mailto:ahrar.0932@gmail.com'">📧 Contact Owner via Gmail</button>
+    <button class="telegram-btn" onclick="window.location.href='mailto:zappyowner@gmail.com'">📧 Contact Owner via Gmail</button>
   </div>
 
   <script>
+    // Matrix rain animation
+    const canvas = document.getElementById('matrix');
+    const ctx = canvas.getContext('2d');
+
+    canvas.height = window.innerHeight;
+    canvas.width = window.innerWidth;
+
+    const letters = '01';
+    const fontSize = 16;
+    const columns = canvas.width / fontSize;
+
+    const drops = Array.from({ length: columns }, () => 1);
+
+    function draw() {
+      ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+      ctx.fillStyle = '#0F0';
+      ctx.font = fontSize + 'px monospace';
+
+      drops.forEach((y, i) => {
+        const text = letters[Math.floor(Math.random() * letters.length)];
+        const x = i * fontSize;
+        ctx.fillText(text, x, y * fontSize);
+
+        if (y * fontSize > canvas.height && Math.random() > 0.975) {
+          drops[i] = 0;
+        }
+        drops[i]++;
+      });
+    }
+
+    setInterval(draw, 33);
+
+    // Data fetch
     async function fetchData() {
       const number = document.getElementById("number").value.trim();
       const responseBox = document.getElementById("responseBox");
@@ -160,12 +179,13 @@
 
         if (apiData.status === "success" && Array.isArray(apiData.data) && apiData.data.length > 0) {
           const user = apiData.data[0];
-          const content = `📞 Mobile: ${user.Mobile || "Not found"}
+          const content = `
+📞 Mobile: ${user.Mobile || "Not found"}
 👤 Name: ${user.Name || "Not found"}
 🆔 CNIC: ${user.CNIC || "Not found"}
 📍 Address: ${user.Address || "Not found"}
-📶 Operator: ${user.Operator || "Not found"}`;
-
+📶 Operator: ${user.Operator || "Not found"}
+          `;
           responseBox.innerText = content;
           responseBox.style.display = "block";
           shareButton.style.display = "inline-block";
