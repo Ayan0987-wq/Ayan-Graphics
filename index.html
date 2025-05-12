@@ -1,212 +1,154 @@
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>SIM DATA BY SALMAN X AMAN</title>
-  <style>
-    html, body {
-      margin: 0;
-      padding: 0;
-      height: 100%;
-      overflow: hidden;
-      font-family: Arial, sans-serif;
-      background: url('hacker.jpg') no-repeat center center fixed;
-      background-size: cover;
-    }
 
-    canvas {
-      position: fixed;
-      top: 0;
-      left: 0;
-      z-index: -1;
-    }
+    <!doctype html>
+    <html lang="en">
+      <head>
+        <script type="module">import { injectIntoGlobalHook } from "/@react-refresh"
+injectIntoGlobalHook(window);
+window.$RefreshReg$ = () => {};
+window.$RefreshSig$ = () => (type) => type;</script>
 
-    body {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
+        <script type="module" src="/@vite/client"></script>
 
-    .box {
-      background: rgba(0, 0, 0, 0.85);
-      border: 2px solid green;
-      box-shadow: 0 0 25px green;
-      padding: 30px 20px;
-      border-radius: 15px;
-      width: 100%;
-      max-width: 400px;
-      text-align: center;
-      animation: fadeIn 1s ease-in-out;
-    }
+        <meta charset="UTF-8" />
+        <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+        <meta name="generator" content="Hostinger Horizons" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Mashallah Boutique Center</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+        <script type="module">
+window.onerror = (message, source, lineno, colno, errorObj) => {
+	const errorDetails = errorObj ? JSON.stringify({
+		name: errorObj.name,
+		message: errorObj.message,
+		stack: errorObj.stack,
+		source,
+		lineno,
+		colno,
+	}) : null;
 
-    .box h2 {
-      color: green;
-      font-size: 24px;
-      margin-bottom: 20px;
-    }
+	window.parent.postMessage({
+		type: 'horizons-runtime-error',
+		message,
+		error: errorDetails
+	}, '*');
+};
+</script>
+        <script type="module">
+const observer = new MutationObserver((mutations) => {
+	for (const mutation of mutations) {
+		for (const addedNode of mutation.addedNodes) {
+			if (
+				addedNode.nodeType === Node.ELEMENT_NODE &&
+				(
+					addedNode.tagName?.toLowerCase() === 'vite-error-overlay' ||
+					addedNode.classList?.contains('backdrop')
+				)
+			) {
+				handleViteOverlay(addedNode);
+			}
+		}
+	}
+});
 
-    .box input {
-      width: 100%;
-      padding: 12px;
-      border-radius: 8px;
-      border: none;
-      margin-bottom: 20px;
-      font-size: 16px;
-      background: #333;
-      color: white;
-      box-shadow: inset 0 0 5px green;
-    }
+observer.observe(document.documentElement, {
+	childList: true,
+	subtree: true
+});
 
-    .box button {
-      width: 100%;
-      padding: 12px;
-      border: none;
-      border-radius: 8px;
-      margin: 10px 0;
-      font-size: 16px;
-      font-weight: bold;
-      cursor: pointer;
-      color: white;
-      background: linear-gradient(90deg, #00c000, #00ff00);
-      box-shadow: 0 0 15px green;
-      transition: 0.3s;
-    }
+function handleViteOverlay(node) {
+	if (!node.shadowRoot) {
+		return;
+	}
 
-    .box button:hover {
-      transform: scale(1.05);
-      background: linear-gradient(90deg, #00ff00, #00c000);
-    }
+	const backdrop = node.shadowRoot.querySelector('.backdrop');
 
-    .whatsapp-btn {
-      background: linear-gradient(90deg, #25D366, #128C7E);
-      box-shadow: 0 0 15px #25D366;
-      color: white;
-    }
+	if (backdrop) {
+		const overlayHtml = backdrop.outerHTML;
+		const parser = new DOMParser();
+		const doc = parser.parseFromString(overlayHtml, 'text/html');
+		const messageBodyElement = doc.querySelector('.message-body');
+		const fileElement = doc.querySelector('.file');
+		const messageText = messageBodyElement ? messageBodyElement.textContent.trim() : '';
+		const fileText = fileElement ? fileElement.textContent.trim() : '';
+		const error = messageText + (fileText ? ' File:' + fileText : '');
 
-    .telegram-btn {
-      background: linear-gradient(90deg, #0088cc, #005577);
-      box-shadow: 0 0 15px #0088cc;
-      color: white;
-    }
+		window.parent.postMessage({
+			type: 'horizons-vite-error',
+			error,
+		}, '*');
+	}
+}
+</script>
+        <script type="module">
+const originalConsoleError = console.error;
+console.error = function(...args) {
+	originalConsoleError.apply(console, args);
 
-    #responseBox {
-      color: white;
-      margin-top: 20px;
-      font-size: 16px;
-      display: none;
-      animation: fadeIn 1s ease-in-out;
-      background: #222;
-      border: 1px solid #444;
-      padding: 15px;
-      border-radius: 10px;
-      text-align: left;
-    }
+	let errorString = '';
 
-    @keyframes fadeIn {
-      0% { opacity: 0; }
-      100% { opacity: 1; }
-    }
-  </style>
-</head>
-<body>
-  <canvas id="matrix"></canvas>
+	for (let i = 0; i < args.length; i++) {
+		const arg = args[i];
+		if (arg instanceof Error) {
+			errorString = arg.stack || `${arg.name}: ${arg.message}`;
+			break;
+		}
+	}
 
-  <div class="box">
-    <h2>🔍 SALMAN MODS DB</h2>
-    <input type="text" id="number" placeholder="Enter phone number without +92 or 0" required />
-    <button onclick="fetchData()">🔎 Get Details</button>
+	if (!errorString) {
+		errorString = args.map(arg => typeof arg === 'object' ? JSON.stringify(arg) : String(arg)).join(' ');
+	}
 
-    <div id="responseBox"></div>
+	window.parent.postMessage({
+		type: 'horizons-console-error',
+		error: errorString
+	}, '*');
+};
+</script>
+        <script type="module">
+const originalFetch = window.fetch;
 
-    <button id="shareButton" class="whatsapp-btn" onclick="shareWhatsApp()" style="display: none;">📲 Share on WhatsApp</button>
-    <button class="telegram-btn" onclick="window.location.href='mailto:zappyowner@gmail.com'">📧 Contact Owner via Gmail</button>
-  </div>
+window.fetch = function(...args) {
+	const url = args[0] instanceof Request ? args[0].url : args[0];
 
-  <script>
-    // Matrix rain animation
-    const canvas = document.getElementById('matrix');
-    const ctx = canvas.getContext('2d');
+	// Skip WebSocket URLs
+	if (url.startsWith('ws:') || url.startsWith('wss:')) {
+		return originalFetch.apply(this, args);
+	}
 
-    canvas.height = window.innerHeight;
-    canvas.width = window.innerWidth;
+	return originalFetch.apply(this, args)
+		.then(async response => {
+			const contentType = response.headers.get('Content-Type') || '';
 
-    const letters = '01';
-    const fontSize = 16;
-    const columns = canvas.width / fontSize;
+			// Exclude HTML document responses
+			const isDocumentResponse =
+				contentType.includes('text/html') ||
+				contentType.includes('application/xhtml+xml');
 
-    const drops = Array.from({ length: columns }, () => 1);
+			if (!response.ok && !isDocumentResponse) {
+					const responseClone = response.clone();
+					const errorFromRes = await responseClone.text();
+					const requestUrl = response.url;
+					console.error(`Fetch error from ${requestUrl}: ${errorFromRes}`);
+			}
 
-    function draw() {
-      ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
-      ctx.fillRect(0, 0, canvas.width, canvas.height);
+			return response;
+		})
+		.catch(error => {
+			if (!url.match(/.html?$/i)) {
+				console.error(error);
+			}
 
-      ctx.fillStyle = '#0F0';
-      ctx.font = fontSize + 'px monospace';
-
-      drops.forEach((y, i) => {
-        const text = letters[Math.floor(Math.random() * letters.length)];
-        const x = i * fontSize;
-        ctx.fillText(text, x, y * fontSize);
-
-        if (y * fontSize > canvas.height && Math.random() > 0.975) {
-          drops[i] = 0;
-        }
-        drops[i]++;
-      });
-    }
-
-    setInterval(draw, 33);
-
-    // Data fetch
-    async function fetchData() {
-      const number = document.getElementById("number").value.trim();
-      const responseBox = document.getElementById("responseBox");
-      const shareButton = document.getElementById("shareButton");
-
-      if (!number) {
-        alert("Please enter a phone number.");
-        return;
-      }
-
-      const url = `https://api.allorigins.win/get?url=${encodeURIComponent(`https://fam-official.serv00.net/sim/api.php?num=${number}`)}`;
-
-      try {
-        const res = await fetch(url);
-        const json = await res.json();
-        const apiData = JSON.parse(json.contents);
-
-        if (apiData.status === "success" && Array.isArray(apiData.data) && apiData.data.length > 0) {
-          const user = apiData.data[0];
-          const content = `
-📞 Mobile: ${user.Mobile || "Not found"}
-👤 Name: ${user.Name || "Not found"}
-🆔 CNIC: ${user.CNIC || "Not found"}
-📍 Address: ${user.Address || "Not found"}
-📶 Operator: ${user.Operator || "Not found"}
-          `;
-          responseBox.innerText = content;
-          responseBox.style.display = "block";
-          shareButton.style.display = "inline-block";
-        } else {
-          responseBox.innerHTML = `<p style="color: yellow; font-size: 18px; font-weight: bold;">Data Not Found</p>`;
-          responseBox.style.display = "block";
-          shareButton.style.display = "none";
-        }
-      } catch (e) {
-        responseBox.innerHTML = `<p style="color: green; font-size: 18px; font-weight: bold;">Error fetching data. Please try again later.</p>`;
-        responseBox.style.display = "block";
-        shareButton.style.display = "none";
-      }
-    }
-
-    function shareWhatsApp() {
-      const responseBox = document.getElementById("responseBox");
-      const text = encodeURIComponent(responseBox.innerText);
-      const url = `https://wa.me/?text=${text}`;
-      window.open(url, '_blank');
-    }
-  </script>
-</body>
-</html>
+			throw error;
+		});
+};
+</script>
+      </head>
+      <body>
+        <div id="root"></div>
+        <script type="module" src="/src/main.jsx"></script>
+      </body>
+    </html>
+  
