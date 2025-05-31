@@ -1,154 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ayan Graphics</title>
+  <style>
+   
+    body {
+      margin: 0;
+     text-align: center; 
+      background: thistle;
+      color: #333;
+    }
 
+    header {
+      background: #111;
+      color: #fff;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      border: 5px solid white;
+    }
 
-    <!doctype html>
-    <html lang="en">
-      <head>
-        <script type="module">import { injectIntoGlobalHook } from "/@react-refresh"
-injectIntoGlobalHook(window);
-window.$RefreshReg$ = () => {};
-window.$RefreshSig$ = () => (type) => type;</script>
+    .logo {
+      font-size: 1.8rem;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
 
-        <script type="module" src="/@vite/client"></script>
+    nav a {
+      color: #fff;
+      margin-left: 1rem;
+      text-decoration: none;
+      font-weight: 500;
+    }
 
-        <meta charset="UTF-8" />
-        <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-        <meta name="generator" content="Hostinger Horizons" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Mashallah Boutique Center</title>
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-        <script type="module">
-window.onerror = (message, source, lineno, colno, errorObj) => {
-	const errorDetails = errorObj ? JSON.stringify({
-		name: errorObj.name,
-		message: errorObj.message,
-		stack: errorObj.stack,
-		source,
-		lineno,
-		colno,
-	}) : null;
+    nav a:hover {
+      color: #00bcd4;
+    }
 
-	window.parent.postMessage({
-		type: 'horizons-runtime-error',
-		message,
-		error: errorDetails
-	}, '*');
-};
-</script>
-        <script type="module">
-const observer = new MutationObserver((mutations) => {
-	for (const mutation of mutations) {
-		for (const addedNode of mutation.addedNodes) {
-			if (
-				addedNode.nodeType === Node.ELEMENT_NODE &&
-				(
-					addedNode.tagName?.toLowerCase() === 'vite-error-overlay' ||
-					addedNode.classList?.contains('backdrop')
-				)
-			) {
-				handleViteOverlay(addedNode);
-			}
-		}
-	}
-});
+    .hero {
+      height: 100vh;
+     
+      color:rgb(27, 27, 58);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 2rem;
+    }
 
-observer.observe(document.documentElement, {
-	childList: true,
-	subtree: true
-});
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      border-right: .15em solid #00bcd4;
+      white-space: nowrap;
+      overflow: hidden;
+      width: 0;
+      animation: typing 3s steps(30, end) forwards, blink 0.75s step-end infinite;
+    }
 
-function handleViteOverlay(node) {
-	if (!node.shadowRoot) {
-		return;
-	}
+    .hero p {
+      font-size: 1.2rem;
+      max-width: 600px;
+      margin-top: 1rem;
+      opacity: 0;
+      animation: fadeIn 2s ease 3.2s forwards;
+    }
 
-	const backdrop = node.shadowRoot.querySelector('.backdrop');
+    @keyframes typing {
+      from { width: 0 }
+      to { width: 100% }
+    }
 
-	if (backdrop) {
-		const overlayHtml = backdrop.outerHTML;
-		const parser = new DOMParser();
-		const doc = parser.parseFromString(overlayHtml, 'text/html');
-		const messageBodyElement = doc.querySelector('.message-body');
-		const fileElement = doc.querySelector('.file');
-		const messageText = messageBodyElement ? messageBodyElement.textContent.trim() : '';
-		const fileText = fileElement ? fileElement.textContent.trim() : '';
-		const error = messageText + (fileText ? ' File:' + fileText : '');
+    @keyframes blink {
+      50% { border-color: transparent }
+    }
 
-		window.parent.postMessage({
-			type: 'horizons-vite-error',
-			error,
-		}, '*');
-	}
-}
-</script>
-        <script type="module">
-const originalConsoleError = console.error;
-console.error = function(...args) {
-	originalConsoleError.apply(console, args);
+    @keyframes fadeIn {
+      to { opacity: 1 }
+    }
 
-	let errorString = '';
+    section {
+      padding: 2rem;
+      max-width: 1000px;
+      margin: auto;
+    }
 
-	for (let i = 0; i < args.length; i++) {
-		const arg = args[i];
-		if (arg instanceof Error) {
-			errorString = arg.stack || `${arg.name}: ${arg.message}`;
-			break;
-		}
-	}
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
 
-	if (!errorString) {
-		errorString = args.map(arg => typeof arg === 'object' ? JSON.stringify(arg) : String(arg)).join(' ');
-	}
+    .gallery {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
 
-	window.parent.postMessage({
-		type: 'horizons-console-error',
-		error: errorString
-	}, '*');
-};
-</script>
-        <script type="module">
-const originalFetch = window.fetch;
+    .gallery img {
+      width: 170%;
+      max-width: 300px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      border: 5px solid white;
+    
+    }
 
-window.fetch = function(...args) {
-	const url = args[0] instanceof Request ? args[0].url : args[0];
-
-	// Skip WebSocket URLs
-	if (url.startsWith('ws:') || url.startsWith('wss:')) {
-		return originalFetch.apply(this, args);
-	}
-
-	return originalFetch.apply(this, args)
-		.then(async response => {
-			const contentType = response.headers.get('Content-Type') || '';
-
-			// Exclude HTML document responses
-			const isDocumentResponse =
-				contentType.includes('text/html') ||
-				contentType.includes('application/xhtml+xml');
-
-			if (!response.ok && !isDocumentResponse) {
-					const responseClone = response.clone();
-					const errorFromRes = await responseClone.text();
-					const requestUrl = response.url;
-					console.error(`Fetch error from ${requestUrl}: ${errorFromRes}`);
-			}
-
-			return response;
-		})
-		.catch(error => {
-			if (!url.match(/.html?$/i)) {
-				console.error(error);
-			}
-
-			throw error;
-		});
-};
-</script>
-      </head>
-      <body>
-        <div id="root"></div>
-        <script type="module" src="/src/main.jsx"></script>
-      </body>
-    </html>
+    .Yellow img {
+      width: 170%;
+      max-width: 300px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      border: 5px solid white;
+      display:-ms-flexbox;
+      justify-content: center;
+      margin-top: 10px;
+      margin-right: 10px;
+      
   
+    }
+
+    #about p,
+    #contact p {
+      line-height: 1.6;
+      font-size: 1.1rem;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background: #111;
+      color: #aaa;
+      margin-top: 2rem;
+      border: 5px solid white;
+    }
+
+    @media (max-width: 600px) {
+      .hero h1 {
+        font-size: 2rem;
+      }
+      nav {
+        margin-top: 1rem;
+      }
+    }
+    p{
+      font-family: Georgia, 'Times New Roman', Times, serif;
+      text-decoration: dotted;
+    }
+  
+  h1{
+    font-size:xx-large ;
+  }
+  h2{
+    text-align: center;
+  }
+  body {
+      margin: 0;
+      height: 100vh;
+      background: linear-gradient(-45deg, #ff9a9e, #fad0c4, #fad0c4, #fbc2eb);
+      background-size: 400% 400%;
+      animation: gradientBG 15s ease infinite;
+      
+    }
+
+    @keyframes gradientBG {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
+      
+  </style>
+
+  </head>
+<body>
+
+  <header>
+    <div class="logo">Ayan Graphics</div>
+    <nav>
+      <a href="#portfolio">Portfolio</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+   <p>
+  <section class="hero">
+    <h1>Welcome to Ayan Graphics</h1>
+    <p id="ma">Creative designs that speak louder than words — that’s the essence of Ayan Graphics. I believe that design is more than just visuals; it’s a form of communication that captures attention, evokes emotion, and delivers meaning.
+.</p>
+<p> 
+  My Protfolio Explains What I Design.
+</p>
+  </section>
+
+  <section id="portfolio">
+    <h2>Portfolio</h2>
+    <div class="gallery">
+      <img src="Yellow and Black Circles Arts and Crafts Creative Agency Logo.jpg" alt="Design 1" />
+      <img src="Blue White Modern Minimalist Name Logo.png" alt="Design 2" />
+      <img src="Black and Gold Simple Personal Logo.jpg" alt="Design 3" />
+      <img src="Black and Red Edgy Gaming Youtube Banner.png" alt="de">
+      <img src="Blue and Purple Gaming Channel Banner.png" alt="">
+      <img src="Blue and Red Gradient Modern Multi Purpose YouTube Thumbnail.png" alt="">
+      <img src="Green and black Brush Strokes Creative YouTube Thumbnail.png" alt="">
+      <img src="Red and Yellow Bold Typographic Youtube Thumbnail .png" alt="">
+      
+    </div>
+    <div class="Yellow">
+      <img src="Purple Modern Business Workshop Poster.png" alt="">
+      <img src="Green and Yellow Modern Online Course Education Poster.png" alt="">
+    </div>
+  </section>
+
+  <section id="about">
+    <h2>About Me</h2>
+    <p>Hi, I'm Ayan — a passionate and versatile digital creator with expertise in graphic design, web design, and video editing. I specialize in crafting visually compelling content that leaves a lasting impression.
+
+From modern websites to standout logos, eye-catching thumbnails, vibrant banners, professional posters, and dynamic video edits, I bring ideas to life across a variety of digital platforms. One of my unique strengths is creating custom cartoon-style designs, adding a fun and memorable twist that sets my work apart.
+
+Whether you're building a brand, promoting a project, or leveling up your social media presence, I’m here to turn your vision into bold, creative visuals..</p>
+  </section>
+
+  <section id="contact">
+    <h2>Contact</h2>
+    <p>Email: <a href="mailto:ayanishaque0987@gmail.com">ayanishaque0987@gmail.com</a></p>
+    <p>Instagram: <a href="https://www.instagram.com/ayanx_offical/" target="_blank">ayangraphics</a></p>
+  </section>
+</p>
+  <footer>
+    <p>&copy; 2025 Ayan Graphics. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
