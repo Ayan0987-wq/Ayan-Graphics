@@ -1,4 +1,5 @@
 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,7 +18,7 @@
     html, body {
       height: 100%;
       font-family: 'Poppins', sans-serif;
-      color: black;
+      color: #00ff00;
       background: transparent;
       overflow: hidden;
     }
@@ -29,7 +30,7 @@
       width: 100%;
       height: 100%;
       z-index: -2;
-      background: 01e0ff;
+      background: black;
     }
 
     .overlay {
@@ -54,19 +55,25 @@
       position: relative;
     }
 
-   
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(30px); }
-      to { opacity: 1; transform: translateY(0); }
+    .card {
+      background: rgba(0, 0, 0, 0.3); /* transparent box */
+      border-radius: 20px;
+      padding: 40px 30px;
+      border: 1px solid #00ff00;
+      text-align: center;
+      max-width: 800px;
+      width: 100%;
+      backdrop-filter: blur(2px);
+      animation: fadeIn 1.5s ease forwards;
     }
 
+    
     .profile-pic {
       width: 140px;
       height: 140px;
       border-radius: 50%;
       object-fit: cover;
-      border: 3px solid 01e0ff;
+      border: 3px solid #00ff00;
       margin-bottom: 20px;
     }
 
@@ -89,7 +96,7 @@
     .info-box h2 {
       font-size: 1.5em;
       margin-bottom: 10px;
-      border-bottom: 1px solid 01e0ff;
+      border-bottom: 1px solid #00ff00;
       padding-bottom: 5px;
     }
 
@@ -111,7 +118,7 @@
       background: linear-gradient(135deg, #00ff00, #007f00);
       border: none;
       border-radius: 50px;
-      color: 01e0ff;
+      color: black;
       font-size: 1.1em;
       text-decoration: none;
       transition: all 0.3s ease;
@@ -129,7 +136,6 @@
       font-size: 0.9em;
       color: #00ff00;
     }
-    
   </style>
 </head>
 <body>
@@ -184,7 +190,7 @@
 <!-- Content -->
 <div class="container">
   <div class="card">
-    <img class="profile-pic" src="https://i.postimg.cc/k4PbRrZm/Chat-GPT-Image-Jun-13-2025-01-21-57-AM.png" />
+    <img class="profile-pic" src="https://i.postimg.cc/k4PbRrZm/Chat-GPT-Image-Jun-13-2025-01-21-57-AM.png" alt="Profile Picture" />
     <h1>PROFESSOR AYAN X OFFICAL</h1>
     <p>Hi! I'm AYAN — a creative tech lover building websites, Ai Tools, E-books, . I'm the owner of AYAN GRAPHICS X AI ENGINEER.</p>
 
@@ -209,8 +215,8 @@
     
     </div>
 
-    <a href="https://t.me/zappymods" class="telegram-btn" target="_blank">Join My Instagram</a>
-    <a href="https://whatsapp.com/channel/0029Vb23PVkLikg0IOW3X03K" class="whatsapp-btn" target="_blank">Join My WhatsApp</a>
+    <a href="https://www.instagram.com/ayanx_offical/" class="telegram-btn" target="_blank">Join My Instagram</a>
+    <a href="https://chat.whatsapp.com/LMwqr7EspJJHjHRvBi0zEw" class="whatsapp-btn" target="_blank">Join My WhatsAp</a>
   </div>
 
   <footer>© 2025 PROxAYAN. All rights reserved.</footer>
