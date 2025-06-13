@@ -6,7 +6,6 @@
   <title>PROFESSOR AYAN - Portfolio</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet"/>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
   <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -15,10 +14,11 @@
       overflow-x: hidden;
       font-family: 'Poppins', sans-serif;
       color: white;
+      position: relative;
       background: black;
     }
 
-    /* Background animation */
+    /* Background animated image */
     body::before {
       content: "";
       position: fixed;
@@ -36,14 +36,13 @@
       100% { background-position: center bottom; }
     }
 
-    /* Navbar */
     nav {
+      position: relative;
       background: rgba(0, 0, 0, 0.8);
       padding: 1rem 2rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      position: relative;
       z-index: 10;
     }
 
@@ -51,26 +50,53 @@
       font-size: 2rem;
       font-weight: 600;
       color: #00e5ff;
-      text-shadow: 0 0 10px #00ffea, 0 0 20px #00ffea;
+      text-shadow: 0 0 10px #00ffea, 0 0 20px #00ffea, 0 0 30px #00ffea;
       animation: glow 2s ease-in-out infinite alternate;
-    }
-
-    .nav-links a {
-      color: white;
-      margin-left: 20px;
-      text-decoration: none;
-      font-weight: 500;
-      transition: color 0.3s, text-shadow 0.3s;
-    }
-
-    .nav-links a:hover {
-      color: #00e5ff;
-      text-shadow: 0 0 5px #00e5ff, 0 0 10px #00e5ff, 0 0 20px #00e5ff;
     }
 
     @keyframes glow {
       0% { text-shadow: 0 0 10px #00ffea, 0 0 20px #00ffea; }
       100% { text-shadow: 0 0 20px #00ffea, 0 0 40px #00ffea; }
+    }
+
+    /* 🔥 Glowing nav link animation */
+    .nav-links a {
+      color: white;
+      margin-left: 20px;
+      text-decoration: none;
+      font-weight: 500;
+      position: relative;
+      transition: color 0.3s ease-in-out;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      width: 0%;
+      height: 2px;
+      bottom: -4px;
+      left: 0;
+      background: #00e5ff;
+      box-shadow: 0 0 10px #00e5ff;
+      transition: width 0.3s ease-in-out;
+    }
+
+    .nav-links a:hover {
+      color: #00e5ff;
+      animation: navGlow 1s ease-in-out infinite alternate;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    @keyframes navGlow {
+      0% {
+        text-shadow: 0 0 5px #00e5ff, 0 0 10px #00e5ff;
+      }
+      100% {
+        text-shadow: 0 0 15px #00e5ff, 0 0 30px #00e5ff;
+      }
     }
 
     .section {
@@ -91,7 +117,7 @@
       animation: glow 2s ease-in-out infinite alternate;
     }
 
-    .typed-text {
+    .hero .typed-text {
       font-size: 1.5rem;
       color: #00e5ff;
       margin-top: 1rem;
@@ -134,39 +160,11 @@
       font-weight: bold;
       border-radius: 5px;
       text-decoration: none;
-      transition: background 0.3s;
+      transition: background .3s;
     }
 
     .more-btn:hover {
       background: #00b8d4;
-    }
-
-    /* Contact Styling */
-    .contact-info a {
-      color: white;
-      text-decoration: none;
-      transition: color 0.3s, text-shadow 0.3s;
-    }
-
-    .contact-info a:hover {
-      color: #00e5ff;
-      text-shadow: 0 0 5px #00e5ff, 0 0 10px #00e5ff, 0 0 20px #00e5ff;
-    }
-
-    .social-icons {
-      margin-top: 1rem;
-    }
-
-    .social-icons a {
-      color: #00e5ff;
-      margin: 0 10px;
-      font-size: 1.5rem;
-      transition: transform 0.3s ease, text-shadow 0.3s;
-    }
-
-    .social-icons a:hover {
-      transform: scale(1.2);
-      text-shadow: 0 0 5px #00e5ff, 0 0 10px #00e5ff, 0 0 20px #00e5ff;
     }
 
     footer {
@@ -216,16 +214,8 @@
 
   <section class="section contact animate__animated animate__fadeInUp" id="contact">
     <h2>Contact Me</h2>
-    <div class="contact-info">
-      <p>Email: <a href="mailto:ayanishaque0987@gmail.com">ayanishaque0987@gmail.com</a></p>
-      <p>Phone: <a href="tel:+923360184916">+92 336 0184916</a></p>
-    </div>
-    <div class="social-icons">
-      <a href="https://www.instagram.com/ayanx_offical/" target="_blank"><i class="fab fa-instagram"></i></a>
-      <a href="https://www.facebook.com/" target="_blank"><i class="fab fa-facebook"></i></a>
-      <a href="https://www.linkedin.com/" target="_blank"><i class="fab fa-linkedin"></i></a>
-      <a href="https://github.com/" target="_blank"><i class="fab fa-github"></i></a>
-    </div>
+    <p>Email: <a href="mailto:ayanishaque0987@gmail.com">ayanishaque0987@gmail.com</a></p>
+    <p>Instagram: <a href="https://www.instagram.com/ayanx_offical/">PROFESSOR AYAN X OFFICAL</a></p>
   </section>
 
   <footer>
