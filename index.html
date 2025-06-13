@@ -2,148 +2,192 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>PROFESSOR AYAN</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PROFESSOR AYAN - Portfolio</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet"/>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
-
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
     body, html {
-      font-family: 'Poppins', sans-serif;
-      background: black;
-      color: white;
+      height: 100%;
       overflow-x: hidden;
+      font-family: 'Poppins', sans-serif;
+      color: white;
+      position: relative;
+      background: black;
     }
 
     body::before {
       content: "";
       position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: url('https://i.postimg.cc/Y9BvDKZp/green-animation-bg.gif') center/cover no-repeat;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('https://i.postimg.cc/Y9BvDKZp/green-animation-bg.gif') center center/cover no-repeat;
+      z-index: -2;
+      animation: moveBackground 20s linear infinite;
       opacity: 0.4;
-      z-index: -1;
+    }
+
+    @keyframes moveBackground {
+      0% { background-position: center top; }
+      50% { background-position: center center; }
+      100% { background-position: center bottom; }
     }
 
     nav {
+      background: rgba(0, 0, 0, 0.8);
+      padding: 1rem 2rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 1rem 2rem;
-      background: rgba(0, 0, 0, 0.85);
+      z-index: 10;
+      position: relative;
     }
 
     .logo {
-      font-size: 1.8rem;
-      color: #00e5ff;
-      text-shadow: 0 0 15px #00e5ff;
+      font-size: 2rem;
       font-weight: 600;
+      color: #00e5ff;
+      text-shadow: 0 0 10px #00ffea, 0 0 20px #00ffea;
+      animation: glow 2s ease-in-out infinite alternate;
+    }
+
+    @keyframes glow {
+      0% { text-shadow: 0 0 10px #00ffea, 0 0 20px #00ffea; }
+      100% { text-shadow: 0 0 20px #00ffea, 0 0 40px #00ffea; }
     }
 
     .nav-links a {
       color: white;
       margin-left: 20px;
       text-decoration: none;
-      position: relative;
-      transition: 0.3s;
-    }
-
-    .nav-links a::after {
-      content: "";
-      position: absolute;
-      bottom: -5px;
-      left: 0;
-      width: 100%;
-      height: 2px;
-      background: #00e5ff;
-      transform: scaleX(0);
-      transform-origin: right;
-      transition: transform 0.3s ease-in-out;
-      box-shadow: 0 0 8px #00e5ff;
+      font-weight: 500;
+      transition: color .3s, text-shadow .3s;
     }
 
     .nav-links a:hover {
       color: #00e5ff;
-    }
-
-    .nav-links a:hover::after {
-      transform: scaleX(1);
-      transform-origin: left;
+      text-shadow: 0 0 5px #00e5ff, 0 0 10px #00e5ff;
     }
 
     .section {
-      padding: 4rem 2rem;
+      padding: 5rem 2rem;
       text-align: center;
+      position: relative;
+      z-index: 10;
     }
 
-    .typed-text {
+    .hero {
+      padding: 6rem 2rem;
+    }
+
+    .hero h1 {
+      font-size: 3.5rem;
       color: #00e5ff;
+      text-shadow: 0 0 15px #00ffea, 0 0 30px #00ffea;
+      animation: glow 2s ease-in-out infinite alternate;
+    }
+
+    .hero .typed-text {
       font-size: 1.5rem;
+      color: #00e5ff;
       margin-top: 1rem;
+    }
+
+    .hero p {
+      margin-top: 1rem;
+      font-size: 1.2rem;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
     }
 
     .profile-pic {
-      width: 150px;
-      height: 150px;
+      width: 160px;
+      height: 160px;
       border-radius: 50%;
-      border: 3px solid #00e5ff;
       object-fit: cover;
+      border: 4px solid #00e5ff;
+      display: block;
+      margin: 2rem auto;
+    }
+
+    .section h2 {
+      font-size: 2.5rem;
       margin-bottom: 1rem;
     }
 
+    .section p {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      max-width: 700px;
+      margin: auto;
+    }
+
     .more-btn {
-      background: #00e5ff;
-      padding: 0.8rem 1.5rem;
-      color: black;
-      text-decoration: none;
-      border-radius: 5px;
-      margin-top: 2rem;
       display: inline-block;
-      transition: 0.3s;
+      margin-top: 2rem;
+      padding: .8rem 1.5rem;
+      background: #00e5ff;
+      color: black;
+      font-weight: bold;
+      border-radius: 5px;
+      text-decoration: none;
+      transition: background .3s;
     }
 
     .more-btn:hover {
-      background: #00bcd4;
+      background: #00b8d4;
     }
 
-    .contact p a {
+    .contact-info {
+      margin-top: 2rem;
+    }
+
+    .contact-info p {
+      margin: 0.5rem 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .contact-info i {
       color: #00e5ff;
-      text-decoration: none;
-    }
-
-    .contact i {
-      color: #00e5ff;
-      margin-left: 8px;
-    }
-
-    .fa-phone {
-      transform: rotate(45deg);
-    }
-
-    .social-icons {
-      margin-top: 1rem;
     }
 
     .social-icons a {
       color: #00e5ff;
-      font-size: 1.5rem;
       margin: 0 10px;
-      transition: transform 0.3s;
+      font-size: 1.5rem;
+      transition: transform 0.3s ease, color 0.3s ease;
     }
 
     .social-icons a:hover {
-      color: #00b8d4;
       transform: scale(1.2);
+      color: #00b8d4;
     }
 
     footer {
+      background: rgba(0, 0, 0, 0.9);
       text-align: center;
       padding: 2rem;
-      background: rgba(0,0,0,0.8);
-      font-size: 0.9rem;
+      font-size: .9rem;
+      position: relative;
+      z-index: 10;
+    }
+
+    footer a {
+      color: #00e5ff;
+      text-decoration: none;
     }
   </style>
 </head>
@@ -159,49 +203,49 @@
     </div>
   </nav>
 
-  <section class="section" id="home">
-    <h1>Hello, I'm Professor Ayan</h1>
+  <section class="hero section animate__animated animate__fadeIn" id="home">
+    <h1>Hi, I'm Professor Ayan</h1>
     <div class="typed-text"></div>
-    <p>Creative Graphic Designer & AI Engineer</p>
+    <p>Graphics Designer & AI Engineer creating elegant solutions and powerful digital designs.</p>
   </section>
 
-  <section class="section" id="about">
-    <img src="https://i.postimg.cc/VkSnVcWb/Chat-GPT-Image-Jun-13-2025-01-21-57-AM.png" alt="Profile Picture" class="profile-pic">
+  <section class="section animate__animated animate__fadeInUp" id="about">
+    <img src="https://i.postimg.cc/VkSnVcWb/Chat-GPT-Image-Jun-13-2025-01-21-57-AM.png" alt="Profile Pic" class="profile-pic" />
     <h2>About Me</h2>
-    <p>I’m passionate about digital creation, from AI tools to beautiful web and logo designs.</p>
-    <a class="more-btn" href="https://professor-ayan.vercel.app/" target="_blank">More About Me</a>
+    <p>I am a passionate Graphics Designer and AI Engineer building modern web designs, AI tools, and digital solutions that help businesses shine online.</p>
+    <a class="more-btn" href="https://ayan-graphics.vercel.app/" target="_blank">More About Developer</a>
   </section>
 
-  <section class="section" id="services">
+  <section class="section animate__animated animate__fadeInUp" id="services">
     <h2>Services</h2>
-    <p>Offering AI tools, custom web development, and graphic design for modern brands and creators.</p>
+    <p>Custom web development, AI integrations, logo design, branding, and freelance support for digital creatives.</p>
   </section>
 
-  <section class="section contact" id="contact">
+  <section class="section contact animate__animated animate__fadeInUp" id="contact">
     <h2>Contact Me</h2>
-    <p>Email: <a href="mailto:ayanishaque0987@gmail.com">ayanishaque0987@gmail.com</a></p>
-    <p>Phone: <a href="tel:+923360184916">+92 336 0184916 <i class="fas fa-phone"></i></a></p>
-    <p>Instagram: <a href="https://www.instagram.com/ayanx_offical/" target="_blank">@ayanx_offical</a></p>
-    
+    <div class="contact-info">
+      <p><i class="fas fa-envelope"></i> <a href="mailto:ayanishaque0987@gmail.com">ayanishaque0987@gmail.com</a></p>
+      <p><i class="fas fa-phone-alt"></i> +92 336 0184916</p>
+      <p><i class="fab fa-instagram"></i> <a href="https://www.instagram.com/ayanx_offical/">ayanx_offical</a></p>
+    </div>
     <div class="social-icons">
       <a href="https://www.instagram.com/ayanx_offical/" target="_blank"><i class="fab fa-instagram"></i></a>
-      <a href="https://facebook.com/" target="_blank"><i class="fab fa-facebook"></i></a>
-      <a href="https://twitter.com/" target="_blank"><i class="fab fa-twitter"></i></a>
-      <a href="https://linkedin.com/" target="_blank"><i class="fab fa-linkedin"></i></a>
+      <a href="https://www.facebook.com/" target="_blank"><i class="fab fa-facebook"></i></a>
+      <a href="https://www.linkedin.com/" target="_blank"><i class="fab fa-linkedin"></i></a>
+      <a href="https://github.com/" target="_blank"><i class="fab fa-github"></i></a>
     </div>
   </section>
 
   <footer>
-    <p>&copy; 2025 Professor Ayan. All Rights Reserved.</p>
+    <p>&copy; 2025 PROFESSOR AYAN. All rights reserved.</p>
   </footer>
 
-  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
   <script>
-    const typed = new Typed(".typed-text", {
-      strings: ["Graphics Designer", "AI Engineer", "Freelancer", "Web Developer"],
+    var typed = new Typed(".typed-text", {
+      strings: ["Graphics Designer", "AI Engineer", "Web Developer", "Creative Freelancer"],
       typeSpeed: 60,
       backSpeed: 30,
-      backDelay: 2000,
+      backDelay: 1500,
       loop: true
     });
   </script>
