@@ -4,30 +4,23 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>PROFESSOR AYAN - Portfolio</title>
-
-  <!-- Animate.css -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
-
-  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet"/>
-
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
-
-  <!-- Typed.js -->
   <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
 
   <style>
     * {
       margin: 0; padding: 0; box-sizing: border-box;
     }
+
     body, html {
       height: 100%;
       overflow-x: hidden;
       font-family: 'Poppins', sans-serif;
       color: white;
-      background: black;
       position: relative;
+      background: black;
     }
 
     /* Background animated image */
@@ -48,7 +41,6 @@
       100% { background-position: center bottom; }
     }
 
-    /* Navbar */
     nav {
       position: relative;
       background: rgba(0, 0, 0, 0.8);
@@ -63,7 +55,7 @@
       font-size: 2rem;
       font-weight: 600;
       color: #00e5ff;
-      text-shadow: 0 0 10px #00ffea, 0 0 20px #00ffea;
+      text-shadow: 0 0 10px #00ffea, 0 0 20px #00ffea, 0 0 30px #00ffea;
       animation: glow 2s ease-in-out infinite alternate;
     }
 
@@ -73,11 +65,31 @@
     }
 
     .nav-links a {
+      position: relative;
       color: white;
       margin-left: 20px;
       text-decoration: none;
       font-weight: 500;
       transition: color .3s;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -5px;
+      width: 100%;
+      height: 2px;
+      background: #00e5ff;
+      transform: scaleX(0);
+      transition: transform 0.3s ease-in-out;
+      transform-origin: right;
+      box-shadow: 0 0 10px #00e5ff;
+    }
+
+    .nav-links a:hover::after {
+      transform: scaleX(1);
+      transform-origin: left;
     }
 
     .nav-links a:hover {
@@ -166,17 +178,29 @@
       text-decoration: none;
     }
 
-    .social-icons a {
-      margin: 0 10px;
-      text-decoration: none;
+    .contact i {
+      margin-left: 10px;
+      color: #00e5ff;
     }
 
-    .social-icons i {
+    .contact .fa-phone {
+      transform: rotate(45deg); /* matches image you sent */
+    }
+
+    .social-icons {
+      margin-top: 1rem;
+    }
+
+    .social-icons a {
+      color: #00e5ff;
+      font-size: 1.5rem;
+      margin: 0 10px;
       transition: transform 0.3s;
     }
 
-    .social-icons i:hover {
+    .social-icons a:hover {
       transform: scale(1.2);
+      color: #00b8d4;
     }
   </style>
 </head>
@@ -212,35 +236,14 @@
 
   <section class="section contact animate__animated animate__fadeInUp" id="contact">
     <h2>Contact Me</h2>
-
-    <p><i class="fas fa-envelope"></i> Email: 
-      <a href="mailto:ayanishaque0987@gmail.com">ayanishaque0987@gmail.com</a>
-    </p>
-
-    <p>Phone: 
-      <a href="tel:+923360184916">+92 336 0184916 <i class="fas fa-phone-alt" style="margin-left: 8px;"></i></a>
-    </p>
-
-    <p><i class="fab fa-instagram"></i> Instagram: 
-      <a href="https://www.instagram.com/ayanx_offical/" target="_blank">PROFESSOR AYAN X OFFICAL</a>
-    </p>
-
-    <div class="social-icons" style="margin-top: 1.5rem;">
-      <a href="https://www.instagram.com/ayanx_offical/" target="_blank">
-        <i class="fab fa-instagram fa-2x"></i>
-      </a>
-      <a href="mailto:ayanishaque0987@gmail.com">
-        <i class="fas fa-envelope fa-2x"></i>
-      </a>
-      <a href="https://wa.me/923360184916" target="_blank">
-        <i class="fab fa-whatsapp fa-2x" style="color:#25D366;"></i>
-      </a>
-      <a href="https://www.linkedin.com" target="_blank">
-        <i class="fab fa-linkedin fa-2x" style="color:#0077B5;"></i>
-      </a>
-      <a href="https://www.github.com" target="_blank">
-        <i class="fab fa-github fa-2x"></i>
-      </a>
+    <p>Email: <a href="mailto:ayanishaque0987@gmail.com">ayanishaque0987@gmail.com</a></p>
+    <p>Phone: <a href="tel:+923360184916">+92 336 0184916 <i class="fas fa-phone"></i></a></p>
+    <p>Instagram: <a href="https://www.instagram.com/ayanx_offical/" target="_blank">PROFESSOR AYAN X OFFICIAL</a></p>
+    <div class="social-icons">
+      <a href="https://www.instagram.com/ayanx_offical/" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
+      <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin"></i></a>
+      <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
     </div>
   </section>
 
@@ -257,5 +260,6 @@
       loop: true
     });
   </script>
+
 </body>
 </html>
