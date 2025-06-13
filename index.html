@@ -1,4 +1,6 @@
 
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,7 +19,7 @@
     html, body {
       height: 100%;
       font-family: 'Poppins', sans-serif;
-      color: #66ccff;
+      color: #00ff00;
       background: transparent;
       overflow: hidden;
     }
@@ -54,14 +56,25 @@
       position: relative;
     }
 
-   
+    .card {
+      background: rgba(0, 0, 0, 0.3); /* transparent box */
+      border-radius: 20px;
+      padding: 40px 30px;
+      border: 1px solid #00ff00;
+      text-align: center;
+      max-width: 800px;
+      width: 100%;
+      backdrop-filter: blur(2px);
+      animation: fadeIn 1.5s ease forwards;
+    }
 
+    
     .profile-pic {
       width: 140px;
       height: 140px;
       border-radius: 50%;
       object-fit: cover;
-      border: 3px solid #66ccff;
+      border: 3px solid #00ff00;
       margin-bottom: 20px;
     }
 
@@ -84,19 +97,8 @@
     .info-box h2 {
       font-size: 1.5em;
       margin-bottom: 10px;
-      border-bottom: 1px solid #66ccff;
+      border-bottom: 1px solid #00ff00;
       padding-bottom: 5px;
-    }
-     .card {
-      background: rgba(0, 0, 0, 0.3); /* transparent box */
-      border-radius: 20px;
-      padding: 40px 30px;
-      border: 1px solid #00ff00;
-      text-align: center;
-      max-width: 800px;
-      width: 100%;
-      backdrop-filter: blur(2px);
-      animation: fadeIn 1.5s ease forwards;
     }
 
     .info-box ul {
@@ -107,33 +109,33 @@
 
     .info-box ul li::before {
       content: "› ";
-      color: #66ccff;
+      color: #00ff00;
     }
 
     .telegram-btn, .whatsapp-btn {
       display: inline-block;
       margin: 15px 10px 0 10px;
       padding: 12px 25px;
-      background: linear-gradient(135deg, #66ccff, #0044cc);
+      background: linear-gradient(135deg, #00ff00, #007f00);
       border: none;
       border-radius: 50px;
       color: black;
       font-size: 1.1em;
       text-decoration: none;
       transition: all 0.3s ease;
-      box-shadow: 0 0 10px #66ccff;
+      box-shadow: 0 0 10px #00ff00;
     }
 
     .telegram-btn:hover, .whatsapp-btn:hover {
-      background: linear-gradient(135deg, #0044cc, #66ccff);
+      background: linear-gradient(135deg, #007f00, #00ff00);
       transform: scale(1.05);
-      box-shadow: 0 0 20px #66ccff;
+      box-shadow: 0 0 20px #00ff00;
     }
 
     footer {
       margin-top: 40px;
       font-size: 0.9em;
-      color: #66ccff;
+      color: #00ff00;
     }
   </style>
 </head>
@@ -157,7 +159,7 @@
     ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-    ctx.fillStyle = "#0066ff"; // Blue characters
+    ctx.fillStyle = "#00ff00";
     ctx.font = fontSize + "px monospace";
 
     for (let i = 0; i < drops.length; i++) {
@@ -191,7 +193,7 @@
   <div class="card">
     <img class="profile-pic" src="https://i.postimg.cc/k4PbRrZm/Chat-GPT-Image-Jun-13-2025-01-21-57-AM.png" alt="Profile Picture" />
     <h1>PROFESSOR AYAN X OFFICAL</h1>
-    <p>Hi! I'm AYAN — a creative tech lover building websites, Ai Tools, E-books. I'm the owner of AYAN GRAPHICS X AI ENGINEER.</p>
+    <p>Hi! I'm AYAN — a creative tech lover building websites, Ai Tools, E-books, . I'm the owner of AYAN GRAPHICS X AI ENGINEER.</p>
 
     <div class="info-box">
       <h2>About Me</h2>
@@ -211,7 +213,7 @@
         <li>Ai Website And Tools</li>
         <li>Making E-books</li>
         <li>Profesional Portfolio</li>
-      </ul>
+    
     </div>
 
     <a href="https://www.instagram.com/ayanx_offical/" class="telegram-btn" target="_blank">Join My Instagram</a>
