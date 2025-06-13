@@ -7,24 +7,30 @@
 
   <!-- Animate.css -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet"/>
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
+
   <!-- Typed.js -->
   <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
 
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+    * {
+      margin: 0; padding: 0; box-sizing: border-box;
+    }
     body, html {
       height: 100%;
       overflow-x: hidden;
       font-family: 'Poppins', sans-serif;
       color: white;
-      position: relative;
       background: black;
+      position: relative;
     }
 
+    /* Background animated image */
     body::before {
       content: "";
       position: fixed;
@@ -42,6 +48,7 @@
       100% { background-position: center bottom; }
     }
 
+    /* Navbar */
     nav {
       position: relative;
       background: rgba(0, 0, 0, 0.8);
@@ -56,7 +63,7 @@
       font-size: 2rem;
       font-weight: 600;
       color: #00e5ff;
-      text-shadow: 0 0 10px #00ffea, 0 0 20px #00ffea, 0 0 30px #00ffea;
+      text-shadow: 0 0 10px #00ffea, 0 0 20px #00ffea;
       animation: glow 2s ease-in-out infinite alternate;
     }
 
@@ -161,17 +168,18 @@
 
     .social-icons a {
       margin: 0 10px;
-      color: white;
-      transition: transform 0.3s ease;
+      text-decoration: none;
     }
 
-    .social-icons a:hover {
+    .social-icons i {
+      transition: transform 0.3s;
+    }
+
+    .social-icons i:hover {
       transform: scale(1.2);
     }
-
   </style>
 </head>
-
 <body>
 
   <nav>
@@ -204,16 +212,35 @@
 
   <section class="section contact animate__animated animate__fadeInUp" id="contact">
     <h2>Contact Me</h2>
-    <p><i class="fas fa-envelope"></i> Email: <a href="mailto:ayanishaque0987@gmail.com">ayanishaque0987@gmail.com</a></p>
-    <p><i class="fas fa-phone-alt"></i> Phone: <a href="tel:+923360184916">+92 336 0184916</a></p>
-    <p><i class="fab fa-instagram"></i> Instagram: <a href="https://www.instagram.com/ayanx_offical/" target="_blank">PROFESSOR AYAN X OFFICAL</a></p>
+
+    <p><i class="fas fa-envelope"></i> Email: 
+      <a href="mailto:ayanishaque0987@gmail.com">ayanishaque0987@gmail.com</a>
+    </p>
+
+    <p>Phone: 
+      <a href="tel:+923360184916">+92 336 0184916 <i class="fas fa-phone-alt" style="margin-left: 8px;"></i></a>
+    </p>
+
+    <p><i class="fab fa-instagram"></i> Instagram: 
+      <a href="https://www.instagram.com/ayanx_offical/" target="_blank">PROFESSOR AYAN X OFFICAL</a>
+    </p>
 
     <div class="social-icons" style="margin-top: 1.5rem;">
-      <a href="https://www.instagram.com/ayanx_offical/" target="_blank"><i class="fab fa-instagram fa-2x"></i></a>
-      <a href="mailto:ayanishaque0987@gmail.com"><i class="fas fa-envelope fa-2x"></i></a>
-      <a href="https://wa.me/923360184916" target="_blank"><i class="fab fa-whatsapp fa-2x" style="color:#25D366;"></i></a>
-      <a href="https://www.linkedin.com" target="_blank"><i class="fab fa-linkedin fa-2x" style="color:#0077B5;"></i></a>
-      <a href="https://www.github.com" target="_blank"><i class="fab fa-github fa-2x"></i></a>
+      <a href="https://www.instagram.com/ayanx_offical/" target="_blank">
+        <i class="fab fa-instagram fa-2x"></i>
+      </a>
+      <a href="mailto:ayanishaque0987@gmail.com">
+        <i class="fas fa-envelope fa-2x"></i>
+      </a>
+      <a href="https://wa.me/923360184916" target="_blank">
+        <i class="fab fa-whatsapp fa-2x" style="color:#25D366;"></i>
+      </a>
+      <a href="https://www.linkedin.com" target="_blank">
+        <i class="fab fa-linkedin fa-2x" style="color:#0077B5;"></i>
+      </a>
+      <a href="https://www.github.com" target="_blank">
+        <i class="fab fa-github fa-2x"></i>
+      </a>
     </div>
   </section>
 
@@ -230,6 +257,5 @@
       loop: true
     });
   </script>
-
 </body>
 </html>
