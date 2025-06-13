@@ -2,34 +2,28 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>PROFESSOR AYAN - Portfolio</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet"/>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
   <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
     body, html {
       height: 100%;
       overflow-x: hidden;
       font-family: 'Poppins', sans-serif;
       color: white;
-      position: relative;
       background: black;
     }
 
+    /* Background animation */
     body::before {
       content: "";
       position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
       background: url('https://i.postimg.cc/Y9BvDKZp/green-animation-bg.gif') center center/cover no-repeat;
       z-index: -2;
       animation: moveBackground 20s linear infinite;
@@ -42,14 +36,15 @@
       100% { background-position: center bottom; }
     }
 
+    /* Navbar */
     nav {
       background: rgba(0, 0, 0, 0.8);
       padding: 1rem 2rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      z-index: 10;
       position: relative;
+      z-index: 10;
     }
 
     .logo {
@@ -60,22 +55,22 @@
       animation: glow 2s ease-in-out infinite alternate;
     }
 
-    @keyframes glow {
-      0% { text-shadow: 0 0 10px #00ffea, 0 0 20px #00ffea; }
-      100% { text-shadow: 0 0 20px #00ffea, 0 0 40px #00ffea; }
-    }
-
     .nav-links a {
       color: white;
       margin-left: 20px;
       text-decoration: none;
       font-weight: 500;
-      transition: color .3s, text-shadow .3s;
+      transition: color 0.3s, text-shadow 0.3s;
     }
 
     .nav-links a:hover {
       color: #00e5ff;
-      text-shadow: 0 0 5px #00e5ff, 0 0 10px #00e5ff;
+      text-shadow: 0 0 5px #00e5ff, 0 0 10px #00e5ff, 0 0 20px #00e5ff;
+    }
+
+    @keyframes glow {
+      0% { text-shadow: 0 0 10px #00ffea, 0 0 20px #00ffea; }
+      100% { text-shadow: 0 0 20px #00ffea, 0 0 40px #00ffea; }
     }
 
     .section {
@@ -96,7 +91,7 @@
       animation: glow 2s ease-in-out infinite alternate;
     }
 
-    .hero .typed-text {
+    .typed-text {
       font-size: 1.5rem;
       color: #00e5ff;
       margin-top: 1rem;
@@ -106,8 +101,6 @@
       margin-top: 1rem;
       font-size: 1.2rem;
       max-width: 600px;
-      margin-left: auto;
-      margin-right: auto;
     }
 
     .profile-pic {
@@ -141,39 +134,39 @@
       font-weight: bold;
       border-radius: 5px;
       text-decoration: none;
-      transition: background .3s;
+      transition: background 0.3s;
     }
 
     .more-btn:hover {
       background: #00b8d4;
     }
 
-    .contact-info {
-      margin-top: 2rem;
+    /* Contact Styling */
+    .contact-info a {
+      color: white;
+      text-decoration: none;
+      transition: color 0.3s, text-shadow 0.3s;
     }
 
-    .contact-info p {
-      margin: 0.5rem 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 0.5rem;
-    }
-
-    .contact-info i {
+    .contact-info a:hover {
       color: #00e5ff;
+      text-shadow: 0 0 5px #00e5ff, 0 0 10px #00e5ff, 0 0 20px #00e5ff;
+    }
+
+    .social-icons {
+      margin-top: 1rem;
     }
 
     .social-icons a {
       color: #00e5ff;
       margin: 0 10px;
       font-size: 1.5rem;
-      transition: transform 0.3s ease, color 0.3s ease;
+      transition: transform 0.3s ease, text-shadow 0.3s;
     }
 
     .social-icons a:hover {
       transform: scale(1.2);
-      color: #00b8d4;
+      text-shadow: 0 0 5px #00e5ff, 0 0 10px #00e5ff, 0 0 20px #00e5ff;
     }
 
     footer {
@@ -224,9 +217,8 @@
   <section class="section contact animate__animated animate__fadeInUp" id="contact">
     <h2>Contact Me</h2>
     <div class="contact-info">
-      <p><i class="fas fa-envelope"></i> <a href="mailto:ayanishaque0987@gmail.com">ayanishaque0987@gmail.com</a></p>
-      <p><i class="fas fa-phone-alt"></i> +92 336 0184916</p>
-      <p><i class="fab fa-instagram"></i> <a href="https://www.instagram.com/ayanx_offical/">ayanx_offical</a></p>
+      <p>Email: <a href="mailto:ayanishaque0987@gmail.com">ayanishaque0987@gmail.com</a></p>
+      <p>Phone: <a href="tel:+923360184916">+92 336 0184916</a></p>
     </div>
     <div class="social-icons">
       <a href="https://www.instagram.com/ayanx_offical/" target="_blank"><i class="fab fa-instagram"></i></a>
@@ -249,5 +241,6 @@
       loop: true
     });
   </script>
+
 </body>
 </html>
