@@ -9,40 +9,50 @@
   <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    body, html { height: 100%; overflow-x: hidden; font-family: 'Poppins', sans-serif; color: white; position: relative; }
+    body, html {
+      height: 100%;
+      overflow-x: hidden;
+      font-family: 'Poppins', sans-serif;
+      color: white;
+      position: relative;
+      background: black;
+    }
 
-    /* Background video styling */
-    .bg-video {
+    /* Background animation image */
+    body::before {
+      content: "";
       position: fixed;
       top: 0; left: 0;
       width: 100%; height: 100%;
+      background: url('https://i.postimg.cc/Y9BvDKZp/green-animation-bg.gif') center center/cover no-repeat;
       z-index: -2;
-      overflow: hidden;
+      opacity: 0.2;
+      animation: pulseBg 20s infinite ease-in-out;
     }
-    .bg-video video {
-      position: absolute;
-      top: 50%; left: 50%;
-      min-width: 100%; min-height: 100%;
-      width: auto; height: auto;
-      transform: translate(-50%, -50%);
-      object-fit: cover;
-    }
-    .bg-overlay {
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background-color: rgba(0,0,0,0.6);
-      z-index: -1;
+
+    @keyframes pulseBg {
+      0%, 100% { opacity: 0.2; }
+      50% { opacity: 0.4; }
     }
 
     nav { position: relative; background: rgba(0, 0, 0, 0.8); padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; z-index: 10; }
-    .logo { font-size: 2rem; font-weight: 600; color: #00e5ff; }
+    .logo {
+      font-size: 2rem;
+      font-weight: 600;
+      color: #00e5ff;
+      text-shadow: 0 0 10px #00ffea, 0 0 20px #00ffea;
+    }
+
     .nav-links a { color: white; margin-left: 20px; text-decoration: none; font-weight: 500; transition: color .3s; }
     .nav-links a:hover { color: #00e5ff; }
 
     .section { padding: 5rem 2rem; text-align: center; position: relative; z-index: 10; }
     .hero { padding: 6rem 2rem; }
-    .hero h1 { font-size: 3.5rem; }
+    .hero h1 {
+      font-size: 3.5rem;
+      color: #00e5ff;
+      text-shadow: 0 0 15px #00ffea, 0 0 30px #00ffea;
+    }
     .hero .typed-text { font-size: 1.5rem; color: #00e5ff; margin-top: 1rem; }
     .hero p { margin-top: 1rem; font-size: 1.2rem; max-width: 600px; }
 
@@ -58,14 +68,6 @@
   </style>
 </head>
 <body>
-
-  <!-- Background video & overlay -->
-  <div class="bg-video">
-    <video autoplay muted loop playsinline>
-      <source src="https://cdn-cf-east.streamable.com/video/mp4/onk7xw.mp4" type="video/mp4">
-    </video>
-  </div>
-  <div class="bg-overlay"></div>
 
   <nav>
     <div class="logo">PROFESSOR AYAN</div>
