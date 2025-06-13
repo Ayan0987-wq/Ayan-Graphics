@@ -3,88 +3,70 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>PROFESSOR AYAN - Portfolio</title>
+  <title>PROFESSOR AYAN</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet"/>
-  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
 
   <style>
-    * {
-      margin: 0; padding: 0; box-sizing: border-box;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
 
     body, html {
-      height: 100%;
-      overflow-x: hidden;
       font-family: 'Poppins', sans-serif;
-      color: white;
-      position: relative;
       background: black;
+      color: white;
+      overflow-x: hidden;
     }
 
-    /* Background animated image */
     body::before {
       content: "";
       position: fixed;
       top: 0; left: 0;
       width: 100%; height: 100%;
-      background: url('https://i.postimg.cc/Y9BvDKZp/green-animation-bg.gif') center center/cover no-repeat;
-      z-index: -2;
-      animation: moveBackground 20s linear infinite;
+      background: url('https://i.postimg.cc/Y9BvDKZp/green-animation-bg.gif') center/cover no-repeat;
       opacity: 0.4;
-    }
-
-    @keyframes moveBackground {
-      0% { background-position: center top; }
-      50% { background-position: center center; }
-      100% { background-position: center bottom; }
+      z-index: -1;
     }
 
     nav {
-      position: relative;
-      background: rgba(0, 0, 0, 0.8);
-      padding: 1rem 2rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      z-index: 10;
+      padding: 1rem 2rem;
+      background: rgba(0, 0, 0, 0.85);
     }
 
     .logo {
-      font-size: 2rem;
-      font-weight: 600;
+      font-size: 1.8rem;
       color: #00e5ff;
-      text-shadow: 0 0 10px #00ffea, 0 0 20px #00ffea, 0 0 30px #00ffea;
-      animation: glow 2s ease-in-out infinite alternate;
-    }
-
-    @keyframes glow {
-      0% { text-shadow: 0 0 10px #00ffea, 0 0 20px #00ffea; }
-      100% { text-shadow: 0 0 20px #00ffea, 0 0 40px #00ffea; }
+      text-shadow: 0 0 15px #00e5ff;
+      font-weight: 600;
     }
 
     .nav-links a {
-      position: relative;
       color: white;
       margin-left: 20px;
       text-decoration: none;
-      font-weight: 500;
-      transition: color .3s;
+      position: relative;
+      transition: 0.3s;
     }
 
     .nav-links a::after {
-      content: '';
+      content: "";
       position: absolute;
-      left: 0;
       bottom: -5px;
+      left: 0;
       width: 100%;
       height: 2px;
       background: #00e5ff;
       transform: scaleX(0);
-      transition: transform 0.3s ease-in-out;
       transform-origin: right;
-      box-shadow: 0 0 10px #00e5ff;
+      transition: transform 0.3s ease-in-out;
+      box-shadow: 0 0 8px #00e5ff;
+    }
+
+    .nav-links a:hover {
+      color: #00e5ff;
     }
 
     .nav-links a:hover::after {
@@ -92,99 +74,53 @@
       transform-origin: left;
     }
 
-    .nav-links a:hover {
-      color: #00e5ff;
-    }
-
     .section {
-      padding: 5rem 2rem;
+      padding: 4rem 2rem;
       text-align: center;
-      position: relative;
-      z-index: 10;
     }
 
-    .hero {
-      padding: 6rem 2rem;
-    }
-
-    .hero h1 {
-      font-size: 3.5rem;
+    .typed-text {
       color: #00e5ff;
-      text-shadow: 0 0 15px #00ffea, 0 0 30px #00ffea;
-      animation: glow 2s ease-in-out infinite alternate;
-    }
-
-    .hero .typed-text {
       font-size: 1.5rem;
-      color: #00e5ff;
       margin-top: 1rem;
-    }
-
-    .hero p {
-      margin-top: 1rem;
-      font-size: 1.2rem;
-      max-width: 600px;
     }
 
     .profile-pic {
-      width: 160px;
-      height: 160px;
+      width: 150px;
+      height: 150px;
       border-radius: 50%;
+      border: 3px solid #00e5ff;
       object-fit: cover;
-      border: 4px solid #00e5ff;
-      display: block;
-      margin: 2rem auto;
-    }
-
-    .section h2 {
-      font-size: 2.5rem;
       margin-bottom: 1rem;
     }
 
-    .section p {
-      font-size: 1.1rem;
-      line-height: 1.6;
-      max-width: 700px;
-      margin: auto;
-    }
-
     .more-btn {
-      display: inline-block;
-      margin-top: 2rem;
-      padding: .8rem 1.5rem;
       background: #00e5ff;
+      padding: 0.8rem 1.5rem;
       color: black;
-      font-weight: bold;
-      border-radius: 5px;
       text-decoration: none;
-      transition: background .3s;
+      border-radius: 5px;
+      margin-top: 2rem;
+      display: inline-block;
+      transition: 0.3s;
     }
 
     .more-btn:hover {
-      background: #00b8d4;
+      background: #00bcd4;
     }
 
-    footer {
-      background: rgba(0, 0, 0, 0.9);
-      text-align: center;
-      padding: 2rem;
-      font-size: .9rem;
-      position: relative;
-      z-index: 10;
-    }
-
-    footer a {
+    .contact p a {
       color: #00e5ff;
       text-decoration: none;
     }
 
     .contact i {
-      margin-left: 10px;
       color: #00e5ff;
+      margin-left: 8px;
     }
 
-    .contact .fa-phone {
-      transform: rotate(45deg); /* matches image you sent */
+    .fa-phone {
+      transform: rotate(45deg);
     }
 
     .social-icons {
@@ -199,8 +135,15 @@
     }
 
     .social-icons a:hover {
-      transform: scale(1.2);
       color: #00b8d4;
+      transform: scale(1.2);
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      background: rgba(0,0,0,0.8);
+      font-size: 0.9rem;
     }
   </style>
 </head>
@@ -216,50 +159,51 @@
     </div>
   </nav>
 
-  <section class="hero section animate__animated animate__fadeIn" id="home">
-    <h1>Hi, I'm Professor Ayan</h1>
+  <section class="section" id="home">
+    <h1>Hello, I'm Professor Ayan</h1>
     <div class="typed-text"></div>
-    <p>Graphics Designer & AI Engineer creating elegant solutions and powerful digital designs.</p>
+    <p>Creative Graphic Designer & AI Engineer</p>
   </section>
 
-  <section class="section animate__animated animate__fadeInUp" id="about">
-    <img src="https://i.postimg.cc/VkSnVcWb/Chat-GPT-Image-Jun-13-2025-01-21-57-AM.png" alt="Profile Pic" class="profile-pic" />
+  <section class="section" id="about">
+    <img src="https://i.postimg.cc/VkSnVcWb/Chat-GPT-Image-Jun-13-2025-01-21-57-AM.png" alt="Profile Picture" class="profile-pic">
     <h2>About Me</h2>
-    <p>I am a passionate Graphics Designer and AI Engineer building modern web designs, AI tools, and digital solutions that help businesses shine online.</p>
-    <a class="more-btn" href="https://ayan-graphics.vercel.app/" target="_blank">More About Developer</a>
+    <p>I’m passionate about digital creation, from AI tools to beautiful web and logo designs.</p>
+    <a class="more-btn" href="https://professor-ayan.vercel.app/" target="_blank">More About Me</a>
   </section>
 
-  <section class="section animate__animated animate__fadeInUp" id="services">
+  <section class="section" id="services">
     <h2>Services</h2>
-    <p>Custom web development, AI integrations, logo design, branding, and freelance support for digital creatives.</p>
+    <p>Offering AI tools, custom web development, and graphic design for modern brands and creators.</p>
   </section>
 
-  <section class="section contact animate__animated animate__fadeInUp" id="contact">
+  <section class="section contact" id="contact">
     <h2>Contact Me</h2>
     <p>Email: <a href="mailto:ayanishaque0987@gmail.com">ayanishaque0987@gmail.com</a></p>
     <p>Phone: <a href="tel:+923360184916">+92 336 0184916 <i class="fas fa-phone"></i></a></p>
-    <p>Instagram: <a href="https://www.instagram.com/ayanx_offical/" target="_blank">PROFESSOR AYAN X OFFICIAL</a></p>
+    <p>Instagram: <a href="https://www.instagram.com/ayanx_offical/" target="_blank">@ayanx_offical</a></p>
+    
     <div class="social-icons">
       <a href="https://www.instagram.com/ayanx_offical/" target="_blank"><i class="fab fa-instagram"></i></a>
-      <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
-      <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin"></i></a>
-      <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+      <a href="https://facebook.com/" target="_blank"><i class="fab fa-facebook"></i></a>
+      <a href="https://twitter.com/" target="_blank"><i class="fab fa-twitter"></i></a>
+      <a href="https://linkedin.com/" target="_blank"><i class="fab fa-linkedin"></i></a>
     </div>
   </section>
 
   <footer>
-    <p>&copy; 2025 PROFESSOR AYAN. All rights reserved.</p>
+    <p>&copy; 2025 Professor Ayan. All Rights Reserved.</p>
   </footer>
 
+  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
   <script>
-    var typed = new Typed(".typed-text", {
-      strings: ["Graphics Designer", "AI Engineer", "Web Developer", "Creative Freelancer"],
+    const typed = new Typed(".typed-text", {
+      strings: ["Graphics Designer", "AI Engineer", "Freelancer", "Web Developer"],
       typeSpeed: 60,
       backSpeed: 30,
-      backDelay: 1500,
+      backDelay: 2000,
       loop: true
     });
   </script>
-
 </body>
 </html>
